@@ -1,0 +1,8 @@
+{
+  "name": "FacturaScriptsPOS",
+  "app_id": "6b35a038",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
