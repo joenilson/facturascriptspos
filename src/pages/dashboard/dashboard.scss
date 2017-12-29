@@ -1,0 +1,68 @@
+page-dashboard {
+    .card-background-page {
+
+        .card-square {
+            background: color($colors, light, base);
+            min-width: 256px;
+            min-height: 108px;
+            width: 12vw;
+            height: 12vw;
+        }
+        
+        .card-square-principal {
+            background: color($colors, success, base);
+            min-width: 256px;
+            min-height: 108px;
+            width: 12vw;
+            height: 12vw;
+        }
+        
+        .card-square-last {
+            background: color($colors, danger, base);
+            min-width: 256px;
+            min-height: 108px;
+            width: 12vw;
+            height: 12vw;
+        }
+        
+        ion-card {
+            position: relative;
+            text-align: center;
+        }
+
+        .card-title {
+            position: absolute;
+            top: 30%;
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color: color($colors, title, base);
+        }
+        
+        .card-title-principal {
+            position: absolute;
+            top: 30%;
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color: color($colors, light, base);
+        }
+
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 65%;
+            width: 100%;
+            color: color($colors, title, base);
+        }
+        
+        .card-subtitle-principal {
+            font-size: 1.0em;
+            position: absolute;
+            top: 65%;
+            width: 100%;
+            color: color($colors, light, base);
+        }
+
+    }
+}

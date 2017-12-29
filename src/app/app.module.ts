@@ -6,16 +6,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
 import { UserProvider } from '../providers/user/user';
 import { DatabaseAccessProvider } from '../providers/database-access/database-access';
-
+import { HeaderMenuComponent } from '../components/header-menu/header-menu';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import {LoginPage} from '../pages/login/login';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    HeaderMenuComponent,
     LoginPage
   ],
   imports: [
@@ -23,6 +23,7 @@ import { DatabaseAccessProvider } from '../providers/database-access/database-ac
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
+  
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -33,7 +34,8 @@ import { DatabaseAccessProvider } from '../providers/database-access/database-ac
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    DatabaseAccessProvider
+    DatabaseAccessProvider,
+    AuthServiceProvider
   ]
 })
 export class AppModule {}

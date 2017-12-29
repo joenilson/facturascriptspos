@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, LoadingController, Loading, AlertController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, LoadingController, Loading, AlertController} from 'ionic-angular';
 import {UserProvider} from '../../providers/user/user';
 import {User} from '../../models/user';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -10,15 +11,19 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
     selector: 'page-login',
     templateUrl: 'login.html',
 })
+
 export class LoginPage {
 
     myForm: FormGroup;
 
     public loading: Loading;
+    item: User;
+    loaded: boolean;
 
     constructor(public navCtrl: NavController,
         public navParams: NavParams,
@@ -35,15 +40,20 @@ export class LoginPage {
 
     userData = {"username": "", "password": "", "name": "", "email": ""};
 
-
-
     loginUser() {
-
+        let userDetails = <User>{};
+        userDetails.username = this.myForm.value.username;
+        userDetails.fullname = (this.myForm.value.username === 'admin')?'Administrador':'Cajero de Turno';
+        userDetails.usertype = (this.myForm.value.username === 'admin')?'admin':'cajero';
+        userDetails.id = this.myForm.value.username;
+        this.loaded = true;
+        this.userProvider.save(userDetails);
+        this.navCtrl.push('DashboardPage');
     }
 
-    item: User;
-
-    loaded: boolean;
+    logout(){
+        
+    }
 
     async getItem() {
         //let id = this.navParams.get('id') as string;
@@ -67,11 +77,11 @@ export class LoginPage {
     }
 
     ionViewWillEnter() {
-        //this.getList();
+    
     }
 
     ionViewDidLoad() {
-        this.getItem();
+        
         console.log('ionViewDidLoad LoginPage');
     }
 
