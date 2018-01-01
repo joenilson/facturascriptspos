@@ -1,2 +1,3 @@
-# facturascriptspos
-FacturaScriptsPOS
+# FacturaScriptsPOS
+
+POS application to connect to FacturScripts

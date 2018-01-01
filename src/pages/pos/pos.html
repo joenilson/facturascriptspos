@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar hideBackButton="true">
-        <ion-title>pos</ion-title>
+        <ion-title>POS | {{moneyStart?(moneyStart|currencyFormatter):''}}</ion-title>
         <ion-buttons right>
             <button ion-button icon-only menuToggle>
                 <ion-icon name='menu'></ion-icon>
@@ -19,5 +19,72 @@
 
 
 <ion-content padding>
-
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-list>
+                    <ion-item>
+                        <ion-searchbar #barcode_input
+                            [(ngModel)]="barcode"
+                            [showCancelButton]="shouldShowCancel"
+                            (ionInput)="onInput($event)"
+                            (ionCancel)="onCancel($event)">
+                        </ion-searchbar>
+                    </ion-item>
+                    <ion-item>
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col col-12 col-sm>
+                                    X
+                                </ion-col>
+                                <ion-col col-12 col-sm>
+                                    Artículo
+                                </ion-col>
+                                <ion-col col-12 col-sm>
+                                    Cantidad
+                                </ion-col>
+                                <ion-col col-12 col-sm>
+                                    Precio
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-item>
+                    <ion-item>Total purchase</ion-item>
+                    <ion-item>Buttons</ion-item>
+                    <ion-item>Customer data</ion-item>
+                </ion-list>
+            </ion-col>
+            <ion-col>
+                Products info
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-title>
+            <button ion-button outline disabled>Bar of buttons</button>
+            <button ion-button default color="secondary">
+                <ion-icon name="cash"></ion-icon>
+                <span>&nbsp;Procesar pago</span>
+            </button>
+            <button ion-button default color="light">
+                <ion-icon name="archive"></ion-icon>
+                <span>&nbsp;Guardar y nuevo...</span>
+            </button>
+            <button ion-button default>
+                <ion-icon name="contacts"></ion-icon>
+                <span>&nbsp;Cambiar Cliente</span>
+            </button>
+            <button ion-button default color='danger'>
+                <ion-icon name="trash"></ion-icon>
+                <span>&nbsp;Cancelar compra</span>
+            </button>
+            <button ion-button default icon-end color='dark'>
+                <ion-icon name="person"></ion-icon>
+                <span>&nbsp;Supervisor</span>
+            </button>
+        </ion-title>
+
+    </ion-toolbar>
+</ion-footer>

@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController, ModalController} from 'ionic-angular';
-import {StartCasherPage} from './../start-casher/start-casher';
 
 /**
  * Generated class for the DashboardPage page.
@@ -15,7 +14,6 @@ import {StartCasherPage} from './../start-casher/start-casher';
     templateUrl: 'dashboard.html',
 })
 export class DashboardPage {
-
     constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController, public modalCtrl: ModalController) {
     }
 
@@ -24,15 +22,15 @@ export class DashboardPage {
     }
 
     openPOS() {
-        let moneyStart = this.moneyAtCasherModal();
-        this.navCtrl.push('PosPage', { moneyAtStart: moneyStart});
+        this.moneyAtCasherModal();
     }
-    
+
     moneyAtCasherModal(){
-        let addWeatherModal = this.modalCtrl.create(StartCasherPage);
+        let addWeatherModal = this.modalCtrl.create('StartCasherPage');
         addWeatherModal.present();
-        addWeatherModal.onDidDismiss(data=>{ //This is a listener which wil get the data passed from modal when the modal's view controller is dismissed
-            console.log("Data =>", data) //This will log the form entered by user in add modal.
+        addWeatherModal.onDidDismiss(data=>{
+            console.log("Data =>", data.value.money);
+            this.navCtrl.push('PosPage', { moneyAtStart: data.value.money});
         });
     }
 

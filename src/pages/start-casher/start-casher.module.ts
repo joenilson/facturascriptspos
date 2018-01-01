@@ -11,9 +11,6 @@ import { StartCasherPage } from './start-casher';
   ],
   exports: [
     StartCasherPage
-  ],
-  entryComponents: [
-        StartCasherPage
-    ]
+  ]
 })
 export class StartCasherPageModule {}

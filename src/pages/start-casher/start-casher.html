@@ -14,12 +14,12 @@
 </ion-header>
 
 <ion-content padding>
-    <form>
+    <form [formGroup]="form">
         <ion-item>
             <ion-label stacked>Dinero de Apertura</ion-label>
-            <ion-input [(ngModel)]="form.money" type="text" ></ion-input>
+            <ion-input formControlName="money" placeholder="Dinero inicial para aperturar caja" [(ngModel)]="form.money" type="number" step="0"></ion-input>
         </ion-item>
-        <button ion-button block (click)="CloseModal()">Add Weather</button>
+        <button ion-button block (click)="CloseModal()" [disabled]="!form.valid">Aperturar Caja</button>
     </form>
     <div padding>
     </div>

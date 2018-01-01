@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import {IonicPage, ViewController} from 'ionic-angular';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 /**
  * Generated class for the StartCasherPage page.
@@ -14,15 +15,19 @@ import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular
     templateUrl: 'start-casher.html',
 })
 export class StartCasherPage {
-    form: any;
-    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+    form: FormGroup;
+
+    constructor(public viewCtrl: ViewController, public formBuilder: FormBuilder) {
+        this.form = this.formBuilder.group({
+            money: ['1000', Validators.compose([Validators.required, ])],
+        });
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad StartCasherPage');
     }
 
-    CloseModal() {
+    public CloseModal() {
         this.viewCtrl.dismiss(this.form);
     }
 

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the PosPage page.
@@ -10,16 +10,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-pos',
-  templateUrl: 'pos.html',
+    selector: 'page-pos',
+    templateUrl: 'pos.html',
 })
 export class PosPage {
+    @ViewChild('barcode_input') barcode_input;ç
+    barcode: string;
+    moneyStart: number;
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+        this.moneyStart = this.navParams.get('moneyAtStart');
+        this.barcode = '';
+    }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    ionViewDidLoad() {
+        setTimeout(() => {
+            this.barcode_input.setFocus();
+        },10);
+        console.log('ionViewDidLoad PosPage ' + this.moneyStart);
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PosPage');
-  }
+    ionViewDidEnter() {
+
+    }
+
+    onInput(ev: any) {
+        //console.log(ev.target.value);
+    }
 
 }
