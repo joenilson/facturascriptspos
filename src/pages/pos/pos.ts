@@ -14,7 +14,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
     templateUrl: 'pos.html',
 })
 export class PosPage {
-    @ViewChild('barcode_input') barcode_input;ç
+    @ViewChild('barcode_input') barcode_input;
     barcode: string;
     moneyStart: number;
     constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -25,7 +25,7 @@ export class PosPage {
     ionViewDidLoad() {
         setTimeout(() => {
             this.barcode_input.setFocus();
-        },10);
+        }, 10);
         console.log('ionViewDidLoad PosPage ' + this.moneyStart);
     }
 
@@ -34,7 +34,7 @@ export class PosPage {
     }
 
     onInput(ev: any) {
-        //console.log(ev.target.value);
+
     }
 
 }
