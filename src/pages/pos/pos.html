@@ -23,7 +23,7 @@
         <ion-row>
             <ion-col>
                 <ion-list>
-                    <ion-item>
+                    <ion-item color="light">
                         <ion-searchbar #barcode_input
                             [(ngModel)]="barcode"
                             [showCancelButton]="shouldShowCancel"
@@ -64,7 +64,9 @@
     <ion-toolbar>
         <ion-title>
             <button ion-button outline disabled>Bar of buttons</button>
-            <button ion-button default color="secondary">
+
+        </ion-title>
+        <button ion-button default color="success">
                 <ion-icon name="cash"></ion-icon>
                 <span>&nbsp;Procesar pago</span>
             </button>
@@ -84,7 +86,6 @@
                 <ion-icon name="person"></ion-icon>
                 <span>&nbsp;Supervisor</span>
             </button>
-        </ion-title>
 
     </ion-toolbar>
 </ion-footer>
